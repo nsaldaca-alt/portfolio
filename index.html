@@ -52,7 +52,7 @@
   .ticker .track { display: inline-block; padding: 6px 0; font: 500 12.5px var(--mono); animation: scroll 60s linear infinite; }
   .ticker span { margin-right: 32px; }
   .ticker .k { color: var(--yellow); margin-right: 8px; }
-  .down { color: var(--green); }
+  .down, .up { color: var(--green); }
   @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
   @media (prefers-reduced-motion: reduce) { .ticker .track { animation: none; } }
 
@@ -257,8 +257,8 @@
 
 <div class="ticker" aria-hidden="true">
   <div class="track">
-    <span><span class="k">BOPS</span>241 COMMITS</span><span><span class="k">ONE</span>168 COMMITS</span><span><span class="k">PY LOC</span>~69K</span><span><span class="k">TESTS</span>~740</span><span><span class="k">WRONG TOTALS</span>19.0% → 5.3% <span class="down">▼</span></span><span><span class="k">HELPDESK ERR</span>18% → 7% <span class="down">▼</span></span><span><span class="k">DECK LOAD</span>13.2s → 0.67s <span class="down">▼</span></span><span><span class="k">IDB FILES</span>101,156 CLASSIFIED</span><span><span class="k">IFAD</span>45+ PROJECTS · $1.2B+</span><span><span class="k">OECD</span>2 WORKSHOPS · ~90 PARTICIPANTS</span>
-    <span><span class="k">BOPS</span>241 COMMITS</span><span><span class="k">ONE</span>168 COMMITS</span><span><span class="k">PY LOC</span>~69K</span><span><span class="k">TESTS</span>~740</span><span><span class="k">WRONG TOTALS</span>19.0% → 5.3% <span class="down">▼</span></span><span><span class="k">HELPDESK ERR</span>18% → 7% <span class="down">▼</span></span><span><span class="k">DECK LOAD</span>13.2s → 0.67s <span class="down">▼</span></span><span><span class="k">IDB FILES</span>101,156 CLASSIFIED</span><span><span class="k">IFAD</span>45+ PROJECTS · $1.2B+</span><span><span class="k">OECD</span>2 WORKSHOPS · ~90 PARTICIPANTS</span>
+    <span><span class="k">BOPS</span>241 COMMITS</span><span><span class="k">ONE</span>168 COMMITS</span><span><span class="k">PY LOC</span>~69K</span><span><span class="k">TESTS</span>~740</span><span><span class="k">CASH COVER</span>~11 → ~30 DAYS <span class="up">▲</span></span><span><span class="k">WRONG TOTALS</span>19.0% → 5.3% <span class="down">▼</span></span><span><span class="k">HELPDESK ERR</span>18% → 7% <span class="down">▼</span></span><span><span class="k">DECK LOAD</span>13.2s → 0.67s <span class="down">▼</span></span><span><span class="k">IDB FILES</span>101,156 CLASSIFIED</span><span><span class="k">IFAD</span>45+ PROJECTS · $1.2B+</span><span><span class="k">OECD</span>2 WORKSHOPS · ~90 PARTICIPANTS</span>
+    <span><span class="k">BOPS</span>241 COMMITS</span><span><span class="k">ONE</span>168 COMMITS</span><span><span class="k">PY LOC</span>~69K</span><span><span class="k">TESTS</span>~740</span><span><span class="k">CASH COVER</span>~11 → ~30 DAYS <span class="up">▲</span></span><span><span class="k">WRONG TOTALS</span>19.0% → 5.3% <span class="down">▼</span></span><span><span class="k">HELPDESK ERR</span>18% → 7% <span class="down">▼</span></span><span><span class="k">DECK LOAD</span>13.2s → 0.67s <span class="down">▼</span></span><span><span class="k">IDB FILES</span>101,156 CLASSIFIED</span><span><span class="k">IFAD</span>45+ PROJECTS · $1.2B+</span><span><span class="k">OECD</span>2 WORKSHOPS · ~90 PARTICIPANTS</span>
   </div>
 </div>
 
@@ -448,6 +448,7 @@
     <table>
       <thead><tr><th>Metric</th><th>Before → after</th><th>What I built and how it was measured</th></tr></thead>
       <tbody>
+        <tr><td class="k">Cash cover of sales</td><td class="n"><span class="good">~11 → ~30 days</span></td><td>Jan–Sep 2026 vs. the same period of 2025: sales roughly doubled, and average month-end cash in the same bank accounts grew about 6×, so cash per peso billed is almost 3× higher. Since BOps, every sales and expense invoice sits in one place with its collection or payment status, and treasury is projected week by week on real bank balances. Approximate figures, adjusted for sales growth.</td></tr>
         <tr><td class="k">Wrong invoice totals</td><td class="n"><span class="good">19% → 5.3%</span></td><td>Replaced a vision-AI reader with a deterministic PDF parser that accepts a value only when two independent methods agree. Held-out test: 281 of 778 confirmed invoices. Sales invoices now read 90% exact.</td></tr>
         <tr><td class="k">Help-desk wrong answers</td><td class="n"><span class="good">18% → 7%</span></td><td>Rebuilt the help-desk bot as a search engine over the knowledge base that escalates to a person when unsure. Correct answers went from 54 to 86, with 0 of 25 false positives.</td></tr>
         <tr><td class="k">Invoice batch time</td><td class="n"><span class="good">−30 min</span></td><td>Saved per 250-invoice batch (about 7 s per invoice) by removing the AI model's rate-limit pause.</td></tr>
